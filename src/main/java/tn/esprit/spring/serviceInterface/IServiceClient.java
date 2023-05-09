@@ -9,5 +9,6 @@ public interface IServiceClient {
 
     public List<Client> retrieveAllClients();
     public Client ajouterClient(Client client);
+    public float MontantApayerParClient(Integer idClient);
 
 }

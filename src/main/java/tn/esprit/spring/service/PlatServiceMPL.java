@@ -50,6 +50,14 @@ public class PlatServiceMPL implements IServicePlat {
 
     }
 
+    @Override
+    public List<Plat> AfficherlistPlatsParClient(String nom, String prenom) {
+        // Client client = cr.findByNomEAndPrenomE(nom,prenom);
+        return platRepository.findByClientNomAndClientPrenom(nom,prenom);
+
+    }
+
+
 
 
 

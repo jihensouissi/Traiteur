@@ -35,6 +35,12 @@ public class ClientRestController {
 		Client c = serviceClient.ajouterClient(client);
 		return c;
 	}
+	@ApiOperation(value = "montant a payer")
+	@PostMapping("/Afficher Montant/{idClient}")
+	@ResponseBody
+	public float MontantApayer(@PathVariable("idClient") Integer idClient){return serviceClient.MontantApayerParClient(idClient);}
+
+
 
 	
 

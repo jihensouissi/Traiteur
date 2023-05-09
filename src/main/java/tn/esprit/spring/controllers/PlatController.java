@@ -16,13 +16,19 @@ import java.util.List;
 public class PlatController {
     @Autowired
     IServicePlat servicePlat;
-    @Autowired
-    private PlatRepository platRepository;
 
-    @ApiOperation(value = "Récupérer la liste des clients")
-    @GetMapping("/retrieve-all-clients")
+
+    @ApiOperation(value = "Ajouter un Plat")
+    @PostMapping("/add-assign-Plat/{idClient}/{idCuisinier}")
     @ResponseBody
-    public void ajouterPlatAffecterClientsEtCuisinierr (Plat plat, Integer idClient, Integer idCuisinier)
-    {plat.aj}
+    public void ajouterPlatAffecterClientsEtCuisinierr (@RequestBody Plat plat, @PathVariable("idClient") Integer idClient,@PathVariable("idCuisinier") Integer idCuisinier)
+    {servicePlat.ajouterPlatAffecterClientEtCuisinier(plat,idClient,idCuisinier);}
+    @ApiOperation(value = "Afficher Plats")
+    @GetMapping("/Afficher Plat/{nom}/{prenom}")
+    public List<Plat> AfficherlistPlatsParClient(@PathVariable("nom") String nom,@PathVariable("prenom") String prenom) {
+        return servicePlat.AfficherlistPlatsParClient(nom,prenom);
+
+    }
+
 
 }
