@@ -3,10 +3,7 @@ package tn.esprit.spring.service;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tn.esprit.spring.entities.Client;
-import tn.esprit.spring.entities.Cuisinier;
-import tn.esprit.spring.entities.Examen;
-import tn.esprit.spring.entities.Plat;
+import tn.esprit.spring.entities.*;
 import tn.esprit.spring.repository.ClientRepository;
 import tn.esprit.spring.repository.CuisinierRepository;
 import tn.esprit.spring.serviceInterface.IServiceClient;
@@ -41,6 +38,19 @@ public class ClientServiceMPL implements IServiceClient {
        for(Plat p : plats)
        { montant =montant + p.getPrix();}
         return montant;
+    }
+    public void ModifierImc(Integer idclient)
+    {
+        Client c =clientRepository.findById(idclient).get();
+        Set<Plat> plats= c.getPlats();
+        float calories=0;
+        for(Plat p : plats)
+        { calories += p.getCalories();}
+        if (calories<2000){c.setImc(IMC.Faible);}
+        if (calories==2000){c.setImc(IMC.IDEAL);}
+        if (calories>2000){c.setImc(IMC.FORT);}
+   clientRepository.save(c);
+
     }
 
 

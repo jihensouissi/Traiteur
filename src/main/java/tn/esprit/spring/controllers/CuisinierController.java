@@ -25,5 +25,9 @@ public class CuisinierController {
         Cuisinier c= serviceCuisinier.ajouterCuisinier(cuisinier);
         return c;
     }
+    @GetMapping({"/retrieve-cuisinier/{Cuisinier-id}"})
+    public Cuisinier retrieveCuisinier(@PathVariable("Cuisinier-id") Integer idCuisinier) {
+        return this.serviceCuisinier.retrieveCuisinier(idCuisinier);
+    }
 
 }

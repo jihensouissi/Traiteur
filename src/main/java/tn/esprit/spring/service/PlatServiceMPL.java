@@ -49,6 +49,11 @@ public class PlatServiceMPL implements IServicePlat {
 
 
     }
+    public Plat ajouterPlat(Plat plat)
+    {
+        platRepository.save(plat);
+        return plat;
+    }
 
     @Override
     public List<Plat> AfficherlistPlatsParClient(String nom, String prenom) {

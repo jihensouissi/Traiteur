@@ -16,6 +16,13 @@ import java.util.List;
 public class PlatController {
     @Autowired
     IServicePlat servicePlat;
+    @ApiOperation(value = "Ajouter un plat")
+    @PostMapping("/add-plat")
+    @ResponseBody
+    public Plat addPlat(@RequestBody Plat plat) {
+        Plat p = servicePlat.ajouterPlat(plat);
+        return p;
+    }
 
 
     @ApiOperation(value = "Ajouter un Plat")

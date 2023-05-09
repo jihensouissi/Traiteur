@@ -40,6 +40,11 @@ public class ClientRestController {
 	@ResponseBody
 	public float MontantApayer(@PathVariable("idClient") Integer idClient){return serviceClient.MontantApayerParClient(idClient);}
 
+	@ApiOperation(value = "calories")
+	@PostMapping("/modifierColries/{idClient}")
+	@ResponseBody
+	public void UpdateImc(@PathVariable("idClient")Integer idclient){serviceClient.ModifierImc(idclient);}
+
 
 
 	
