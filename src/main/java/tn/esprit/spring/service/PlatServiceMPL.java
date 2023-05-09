@@ -41,7 +41,12 @@ public class PlatServiceMPL implements IServicePlat {
             if (p>2 &&platt.getCategorie().equals(Categorie.DESSERT)|platt.getCategorie().equals(Categorie.ENTREE))
             {plat.setClient(c);}
 
+
         }
+        log.info(("Rejcted"));
+        cu.getPlats().add(plat);
+        platRepository.save(plat);
+
 
     }
 
